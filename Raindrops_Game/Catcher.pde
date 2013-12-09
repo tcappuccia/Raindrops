@@ -1,13 +1,26 @@
 class Catcher {
   PVector loc;
-  int x;
+  int d;
 
-  catcher(float 1) {
-    x=50;
-    loc =new PVector(mouseX, height-x);
+  Catcher() {
+    colorMode(HSB, 360, 100, 100);
+    d=50;
+    loc = new PVector(mouseX, height-d);
   }
+
   void display() {
-    ellipse(loc.x, loc.y, 50, 50);
+    noStroke();
+    fill(0, 50, 20);
+    ellipse(mouseX, loc.y, d, d);
   }
-}
+
+  void reset() {
+    loc.set(mouseX, height-d);
+  }
+
+  void Catch() {
+    if (loc.dist(raindrops.loc) < d) {
+      raindrops.loc.set( - width, height*10);
+      drop.vel.set(0, 0);
+    }
 
