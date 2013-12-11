@@ -6,8 +6,8 @@ class Raindrops {
     colorMode(HSB, 360, 100, 100);
     strokeWeight(1);
     stroke(195, 100, 100);
-    loc = new PVector(random(width), random(height));
-    vel = new PVector(0, random(1, 3));
+    loc = new PVector(random(width), -tailSize);
+    vel = new PVector(0, random(1, 2));
   }
 
   /* 
@@ -30,7 +30,7 @@ class Raindrops {
     }
   }
   void reset() {
-    loc.set(mouseX, height-tailSize);
+    loc.set(mouseX, height+2*tailSize);
   }
 }
 
