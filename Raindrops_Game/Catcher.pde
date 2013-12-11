@@ -14,14 +14,17 @@ class Catcher {
     ellipse(mouseX, loc.y, d, d);
   }
 
-  void reset() {
-    loc.set(mouseX, height-d);
-  }
 
-  void Catch() {
-    if (loc.dist(raindrops.loc) < d) {
-      raindrops.loc.set( - width, height*10);
-      drop.vel.set(0, 0);
+  boolean Catch(Raindrops drops) {
+    if (loc.dist(drops.loc) < d/2 + drops.tailSize/2) {
+      return true;
+    }
+    else {
+      return false;
     }
   }
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> fixed some issues

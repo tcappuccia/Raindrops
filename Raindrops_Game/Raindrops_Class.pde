@@ -29,5 +29,8 @@ class Raindrops {
       loc.y = 0;
     }
   }
+  void reset() {
+    loc.set(mouseX, height-tailSize);
+  }
 }
 
