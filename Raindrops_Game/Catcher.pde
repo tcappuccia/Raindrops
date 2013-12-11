@@ -23,4 +23,5 @@ class Catcher {
       raindrops.loc.set( - width, height*10);
       drop.vel.set(0, 0);
     }
-
+  }
+}
