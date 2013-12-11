@@ -25,9 +25,6 @@ class Raindrops {
   //This function gives the raindrop a falling moion.
   void fall() {
     loc.y+=vel.y;
-    if (loc.y > height) { //This resets the raindrop so that once it is off the screen it begins off at the top of the screen again.
-      loc.y = 0;
-    }
   }
   void reset() {
     loc.set(mouseX, height+2*tailSize);
