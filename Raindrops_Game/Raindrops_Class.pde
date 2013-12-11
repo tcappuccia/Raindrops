@@ -22,10 +22,11 @@ class Raindrops {
     loc.add(vel); //This gives the raindrop a velocity.
   }
 
-  //This function gives the raindrop a falling moion.
+  //This function gives the raindrop a falling motion.
   void fall() {
     loc.y+=vel.y;
   }
+  //This function makes the raindrops go off the screen once caught.
   void reset() {
     loc.set(mouseX, height+2*tailSize);
   }
