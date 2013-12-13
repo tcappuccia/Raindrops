@@ -2,10 +2,10 @@ Raindrops[] drops;
 Catcher c1;
 int oldTime, currentTime, index;
 int score = 0;
-int i, d;
-float hue = 0;
 PImage sky;
 boolean start;
+boolean stop;
+
 
 void setup() {
   colorMode(HSB, 360, 100, 100);
@@ -16,26 +16,12 @@ void setup() {
     drops[i] = new Raindrops();
     c1 = new Catcher();
     start = false;
-    d=10;
-    i=0;
+    stop = false;
   }
 }
 
 void draw() {
   background(0);
-
-  //This creates the startup menu background.
-  for (int i = d/2; i<width; i+=d) {
-    for (int j = d/2; j<=height; j+=d) { 
-      fill(hue, 100, 100); 
-      ellipse (i, j, d, d); 
-      hue+=.5; 
-      if (hue>360) {
-        hue=0;
-      }
-    }
-  }
-
   textAlign(CENTER);
   textSize(50);
   fill(0, 0, 100);
@@ -45,7 +31,6 @@ void draw() {
   if (mousePressed) {
     start=true;
   }
-
   //When the boolean is true, the game begins.
   if (start == true) {
     imageMode(CENTER);
@@ -74,6 +59,25 @@ void draw() {
       if (c1.Catch(drops[i]) == true) { //This boolean determines whether it is true or not, in the case in which it is true, the raindrop resets and the score increases.
         drops[i].reset();
         score++;
+      }
+    }
+
+    if (score >= 2) { //This sets the range for the highest score that can be aquired.
+      stop = true;
+
+      if (stop = true) {
+        fill(0);
+        rect(0, 0, width, height);
+        fill(0, 0, 100);
+        textSize(50); 
+        textAlign(CENTER); 
+        text("You Win!!!", width/2, height/2);
+        textSize(25);
+        text("To Start Again, Click Anywhere :)", width/2, height/2 + 100);
+      }
+      if (mousePressed) {
+        stop = false;
+        start = false;
       }
     }
   }

@@ -26,8 +26,14 @@ class Raindrops {
   void fall() {
     loc.y+=vel.y;
 
-    if (score >= 20) {
+    if (score >= 5) {
       vel = new PVector(0, random(3, 4));
+    }
+    if (score >= 10) {
+      vel = new PVector(0, random(4, 5));
+    }
+    if (score >= 15) { 
+      vel = new PVector(0, random(5, 6));
     }
   }
   //This function makes the raindrops go off the screen once caught.
