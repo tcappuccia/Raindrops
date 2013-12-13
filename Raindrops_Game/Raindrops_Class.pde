@@ -25,6 +25,10 @@ class Raindrops {
   //This function gives the raindrop a falling motion.
   void fall() {
     loc.y+=vel.y;
+
+    if (score >= 20) {
+      vel = new PVector(0, random(3, 4));
+    }
   }
   //This function makes the raindrops go off the screen once caught.
   void reset() {
