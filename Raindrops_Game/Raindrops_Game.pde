@@ -1,6 +1,6 @@
 Raindrops[] drops;
 Catcher c1;
-int oldTime, currentTime, index;
+int oldTime, currentTime, startTime, index;
 int score = 0;
 PImage sky;
 boolean start;
@@ -21,6 +21,8 @@ void setup() {
 }
 
 void draw() {
+  //  println(millis()/1000);
+
   background(0);
   textAlign(CENTER);
   textSize(50);
@@ -30,8 +32,12 @@ void draw() {
   //This boolean determines whether he game should begin or not.
   if (mousePressed) {
     start=true;
+    startTime = millis()/1000;
+    oldTime = startTime;
   }
+
   //When the boolean is true, the game begins.
+
   if (start == true) {
     imageMode(CENTER);
     image(sky, width/2, height/2, width, height); //Creates sky backgroung image
@@ -40,14 +46,17 @@ void draw() {
     textSize(50);
     text("Score: " + score, width/2, 50); //Gives the player a score at the top of the screen.
     textSize(20);
-    text("Time Remaining: "+ (30 - millis()/1000) + " seconds", width/2, 100);
-    currentTime = millis();
+
+    currentTime = millis()/1000 - startTime; 
+    text("Time Remaining: "+ (30 - currentTime) + " seconds", width/2, 100);
+
     c1.display();
     c1.update();
 
-    if (currentTime-oldTime >= 2000) { //This keeps track of the time and allows raindrops to fall at given inervals.
+    if (currentTime-oldTime >= 2) { //This keeps track of the time and allows raindrops to fall at given inervals.
       if (index < drops.length) {
         index++;
+        println(index);
       }
       oldTime = currentTime;
     }
@@ -56,12 +65,13 @@ void draw() {
       drops[i].display();
       drops[i].fall();
 
-
       if (c1.Catch(drops[i]) == true) { //This boolean determines whether it is true or not, in the case in which it is true, the raindrop resets and the score increases.
         drops[i].reset();
         score++;
       }
     }
+
+    //Deals with the timing (whether game ends or not) and the text that shows up.
 
     if (currentTime >= 30000) { //This sets the time (30 seconds) that you can play for.
       stop = true;
@@ -76,7 +86,6 @@ void draw() {
       textSize(25);
       text("To Start Again, Click Anywhere :)", width/2, height/2 + 150);
     }
-
   }
 }
 
