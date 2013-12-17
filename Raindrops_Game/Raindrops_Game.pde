@@ -44,6 +44,7 @@ void draw() {
     currentTime = millis();
     c1.display();
     c1.update();
+
     if (currentTime-oldTime >= 2000) { //This keeps track of the time and allows raindrops to fall at given inervals.
       if (index < drops.length) {
         index++;
@@ -62,24 +63,20 @@ void draw() {
       }
     }
 
-    if (score >= 2) { //This sets the range for the highest score that can be aquired.
+    if (currentTime >= 30000) { //This sets the time (30 seconds) that you can play for.
       stop = true;
-
-      if (stop = true) {
-        fill(0);
-        rect(0, 0, width, height);
-        fill(0, 0, 100);
-        textSize(50); 
-        textAlign(CENTER); 
-        text("You Win!!!", width/2, height/2);
-        textSize(25);
-        text("To Start Again, Click Anywhere :)", width/2, height/2 + 100);
-      }
-      if (mousePressed) {
-        stop = false;
-        start = false;
-      }
+      score+=0;
+      fill(0);
+      rect(0, 0, width, height);
+      fill(0, 0, 100);
+      textSize(50); 
+      textAlign(CENTER); 
+      text("Game Over", width/2, height/2);
+      text("You Scored: " + score, width/2, height/2 + 50);
+      textSize(25);
+      text("To Start Again, Click Anywhere :)", width/2, height/2 + 150);
     }
+
   }
 }
 
