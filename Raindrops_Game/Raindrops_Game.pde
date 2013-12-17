@@ -40,7 +40,7 @@ void draw() {
     textSize(50);
     text("Score: " + score, width/2, 50); //Gives the player a score at the top of the screen.
     textSize(20);
-    text("Time: " + millis()/1000 + " seconds", width/2, 100);
+    text("Time Remaining: "+ (30 - millis()/1000) + " seconds", width/2, 100);
     currentTime = millis();
     c1.display();
     c1.update();
