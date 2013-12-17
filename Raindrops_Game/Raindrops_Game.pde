@@ -53,7 +53,7 @@ void draw() {
     c1.display();
     c1.update();
 
-    if (currentTime-oldTime >= 2) { //This keeps track of the time and allows raindrops to fall at given inervals.
+    if (currentTime-oldTime >= 1) { //This keeps track of the time and allows raindrops to fall at given inervals.
       if (index < drops.length) {
         index++;
         println(index);
@@ -73,7 +73,7 @@ void draw() {
 
     //Deals with the timing (whether game ends or not) and the text that shows up.
 
-    if (currentTime >= 30000) { //This sets the time (30 seconds) that you can play for.
+    if (currentTime >= 30) { //This sets the time (30 seconds) that you can play for.
       stop = true;
       score+=0;
       fill(0);
