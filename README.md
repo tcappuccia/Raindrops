@@ -16,8 +16,8 @@ Raindrops
 -The process will repeat with the score increasing after every ranidrop that is caught.
 
 
-Raindrop Game Indo
-==================
+Raindrop Game Infomation
+========================
 -You have thirty seconds to catch as many raindrops as you can.
 -You also have three lives in case if you drop any of the raindrops.
 -The raindrops increase in speed as the score increases.
